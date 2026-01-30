@@ -1,8 +1,6 @@
 # Asosiy telegram bot kutubxonasi
-python-telegram-bot==20.7
 
 # Rasm bilan ishlash uchun
-Pillow==10.1.0
 
 # Excel va jadval fayllar uchun
 pandas==2.1.4
@@ -23,3 +21,7 @@ rarfile==4.1
 python-dateutil==2.8.2
 pytz==2023.3
 numpy==1.24.3
+python-telegram-bot==20.7
+Pillow==10.3.0
+reportlab==4.1.0
+PyMuPDF==1.24.1
