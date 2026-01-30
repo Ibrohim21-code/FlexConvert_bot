@@ -1,0 +1,12 @@
+build:
+  builder: "nixpacks"
+  nixpacksConfig:
+    installPhase: |
+      apt-get update && apt-get install -y \
+        libfreetype6-dev \
+        pkg-config \
+        libpng-dev \
+        libjpeg-dev \
+        libopenjp2-7-dev \
+        libtiff-dev
+      pip install --no-cache-dir -r requirements.txt
