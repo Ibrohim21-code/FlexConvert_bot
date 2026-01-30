@@ -580,33 +580,22 @@ Agar muammo davom etsa, admin bilan bog'laning: @Ibrohimjon_off
             self.user_files[file_id] = {
                 'user_id': user_id,
                 'input_path': input_path,
-                'original_name': file_name,
-                'extension': file_ext,
-                'size': file_size,
-                'info': file_info,
-                'upload_time': datetime.now()
-            }
-            
-            # Boshlang'ich sozlamalar
-            if user_id not in self.user_settings:
-                self.user_settings[user_id] = {
-                    'image_quality': '85',
-                    'resize_percent': '100'
-                }
-            
-            # Format tanlash tugmachasini yuborish
+
+                 # Format tanlash tugmachasini yuborish
             keyboard = create_format_keyboard(file_ext, file_id, self.user_settings.get(user_id, {}))
             
             if keyboard:
-                info_text = f"""
-✅ *Fayl muvaffaqiyatli yuklandi!*
+                # Fayl ma'lumotlari
+                file_size_display = file_info.get('size', 'Noma\'lum')
+                file_type_display = file_info.get('type', 'Noma\'lum').title()
+                
+                info_text = f"""✅ *Fayl muvaffaqiyatli yuklandi!*
 
 📄 *Ma'lumotlar:*
 • 🏷️ Nomi: `{file_name}`
-• 📊 Hajmi: {file_info.get('size', 'Noma\'lum')}
+• 📊 Hajmi: {file_size_display}
 • 📎 Format: {file_ext.upper()}
-• 🗂️ Turi: {file_info.get('type', 'Noma\'lum').title()}
-
+• 🗂️ Turi: {file_type_display}
 """
                 
                 if 'dimensions' in file_info:
@@ -614,6 +603,18 @@ Agar muammo davom etsa, admin bilan bog'laning: @Ibrohimjon_off
                 
                 info_text += f"\n⬇️ *Quyidagi formatlardan birini tanlang:*"
                 
+                await status_msg.edit_text(
+                    info_text,
+                    parse_mode=ParseMode.MARKDOWN,
+                    reply_markup=keyboard
+                )
+            else:
+                await status_msg.edit_text(
+                    f"⚠️ *Diqqat!*\n\n"
+                    f"Fayl formati: {file_ext.upper()}\n"
+                    f"Ushbu formatdan konvertatsiya qilish imkoni hozircha mavjud emas.\n\n"
+                    f"✅ Qo'llab-quvvatlanadigan formatlar: /formats"
+                )           
                 await status_msg.edit_text(
                     info_text,
                     parse_mode=ParseMode.MARKDOWN,
