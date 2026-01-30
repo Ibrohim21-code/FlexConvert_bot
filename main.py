@@ -572,7 +572,6 @@ Agar muammo davom etsa, admin bilan bog'laning: @Ibrohimjon_off
             # Faylni yuklash
             file = await file_obj.get_file()
             await file.download_to_drive(input_path)
-            
             # Fayl ma'lumotlari
             file_info = get_file_info(input_path)
             
