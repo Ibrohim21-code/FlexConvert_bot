@@ -1,4 +1,2 @@
 python-telegram-bot==20.7
-Pillow==10.3.0
-reportlab==4.1.0
-pymupdf==1.24.1
+Pillow==10.2.0  # Eskiroq, lekin barqaror versiya
