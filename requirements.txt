@@ -1,27 +1,4 @@
-# Asosiy telegram bot kutubxonasi
-
-# Rasm bilan ishlash uchun
-
-# Excel va jadval fayllar uchun
-pandas==2.1.4
-openpyxl==3.1.2
-pyexcel==0.7.0
-pyexcel-xls==0.6.0
-pyexcel-xlsx==0.6.0
-xlrd==2.0.1
-odfpy==1.4.1
-
-# PDF yaratish uchun
-reportlab==4.0.7
-
-# Arxiv fayllar uchun
-rarfile==4.1
-
-# Qo'shimcha foydali kutubxonalar
-python-dateutil==2.8.2
-pytz==2023.3
-numpy==1.24.3
 python-telegram-bot==20.7
 Pillow==10.3.0
 reportlab==4.1.0
-PyMuPDF==1.24.1
+pymupdf==1.24.1
